@@ -6,9 +6,15 @@ function generatePassword() {
   var passwordLength = parseInt(prompt("password Length:"))
 
   if (!passwordLength || passwordLength < 8 || passwordLength > 128) {
-    alert("sorry! this an invalid length, please retry.")
+    alert("sorry! this an invalid length, please retry.");
   return generatePassword()
-  }
+  };
+
+  //Variables for allowed passowrd characters
+var uppercaseABC = ('A','B','C','D','E','F','G','H','I','J','K','L','M','O','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+var lowercaseABC = ('a','b','c','d','e','f','g','h','i','j','k','l','m','o','n','p','q','r','s','t','u','v','w','x','y','z');
+var specialSymbols = ('!','@','#','$','%','^','&','*','(',')','?','.','<','>','|','=','+',':',';',',','[','-','_',']');
+var numeric = ('0','1','2','3','4','5','6','7','8','9');
 
 //Variables created for pop up prompts
 var uppercase = confirm("Your password should have an uppercase letter. Click OK to continue.");
@@ -17,14 +23,8 @@ var symbols = confirm("Your password should have a symbol. Click OK to continue.
 var numbers = confirm("Your password must have numbers. Click OK to continue.");
 var passwordLength = confirm("Your password must be between 8 and 128 characters. Click OK to continue.");
 
-//Variables for allowed passowrd characters
-var uppercaseABC = ['A','B','C','D','E','F','G','H','I','J','K','L','M','O','N','P','Q','R','S','T','U','V','W','X','Y','Z'];
-var lowercaseABC = ['a','b','c','d','e','f','g','h','i','j','k','l','m','o','n','p','q','r','s','t','u','v','w','x','y','z'];
-var specialSymbols = ['!','@','#','$','%','^','&','*','(',')','?','.','<','>','|','=','+',':',';',',','[','-','_',']'];
-var numeric = ['0','1','2','3','4','5','6','7','8','9'];
-
 if (!uppercase || !lowercase || !specialSymbols || !numeric) {
- alert("Your password does not meet the password criteria.")
+ return "Your password does not meet the password criteria.";
 };
 
 var possibleCharacters = [];
@@ -43,8 +43,8 @@ if (numbers) {
 }
 
 var finalPassword = "";
-for (var i =0; i <passwordLength; i++){
-  var  rng = Math.floor(Math.random() * possibleCharacters.length);
+for (var i = 0; i <   passwordLength; i++) {
+  var rng = Math.floor(Math.random() * possibleCharacters.length);
   finalPassword = finalPassword + possibleCharacters[rng];
 }
 return finalPassword;
