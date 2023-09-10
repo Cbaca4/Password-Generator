@@ -11,10 +11,10 @@ function generatePassword() {
   };
 
   //Variables for allowed passowrd characters
-var uppercaseABC = ('A','B','C','D','E','F','G','H','I','J','K','L','M','O','N','P','Q','R','S','T','U','V','W','X','Y','Z');
-var lowercaseABC = ('a','b','c','d','e','f','g','h','i','j','k','l','m','o','n','p','q','r','s','t','u','v','w','x','y','z');
-var specialSymbols = ('!','@','#','$','%','^','&','*','(',')','?','.','<','>','|','=','+',':',';',',','[','-','_',']');
-var numeric = ('0','1','2','3','4','5','6','7','8','9');
+var uppercaseABC = ['A','B','C','D','E','F','G','H','I','J','K','L','M','O','N','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var lowercaseABC = ['a','b','c','d','e','f','g','h','i','j','k','l','m','o','n','p','q','r','s','t','u','v','w','x','y','z'];
+var specialSymbols = ['!','@','#','$','%','^','&','*','(',')','?','.','<','>','|','=','+',':',';',',','[','-','_',']'];
+var numeric = ['0','1','2','3','4','5','6','7','8','9'];
 
 //Variables created for pop up prompts
 var uppercase = confirm("Your password should have an uppercase letter. Click OK to continue.");
@@ -43,9 +43,9 @@ if (numbers) {
 }
 
 var finalPassword = "";
-for (var i = 0; i <   passwordLength; i++) {
-  var rng = Math.floor(Math.random() * possibleCharacters.length);
-  finalPassword = finalPassword + possibleCharacters[rng];
+for (var i = 0; i < passwordLength; i++) {
+  var random = Math.floor(Math.random() * possibleCharacters.length);
+  finalPassword = finalPassword + possibleCharacters[random];
 }
 return finalPassword;
 }
